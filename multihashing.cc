@@ -36,6 +36,7 @@ extern "C" {
 }
 
 #include "boolberry.h"
+#include "primesr.h"  // add by idigger
 
 #define THROW_ERROR_EXCEPTION(x) Nan::ThrowError(x)
 
@@ -692,6 +693,26 @@ NAN_METHOD(c11) {
     info.GetReturnValue().Set(returnValue);
 }
 
+// add by idigger
+NAN_METHOD(primesr) {
+    if (info.Length() < 1)
+        return THROW_ERROR_EXCEPTION("You must provide one argument.");
+
+    Local<Object> target = info[0]->ToObject();
+
+    if(!Buffer::HasInstance(target))
+        return THROW_ERROR_EXCEPTION("Argument should be a buffer object.");
+
+    char * input = Buffer::Data(target);
+
+    uint32_t input_len = Buffer::Length(target);
+
+    int primes = PrimesDifficulty(input, input_len);
+
+    v8::Local<v8::Value> returnValue = Nan::CopyBuffer(&primes, sizeof(primes)).ToLocalChecked();
+    info.GetReturnValue().Set(returnValue);
+}
+
 NAN_MODULE_INIT(init) {
     Nan::Set(target, Nan::New("quark").ToLocalChecked(), Nan::GetFunction(Nan::New<FunctionTemplate>(quark)).ToLocalChecked());
     Nan::Set(target, Nan::New("x11").ToLocalChecked(), Nan::GetFunction(Nan::New<FunctionTemplate>(x11)).ToLocalChecked());
@@ -722,6 +743,7 @@ NAN_MODULE_INIT(init) {
     Nan::Set(target, Nan::New("dcrypt").ToLocalChecked(), Nan::GetFunction(Nan::New<FunctionTemplate>(dcrypt)).ToLocalChecked());
     Nan::Set(target, Nan::New("jh").ToLocalChecked(), Nan::GetFunction(Nan::New<FunctionTemplate>(jh)).ToLocalChecked());
     Nan::Set(target, Nan::New("c11").ToLocalChecked(), Nan::GetFunction(Nan::New<FunctionTemplate>(c11)).ToLocalChecked());
+    Nan::Set(target, Nan::New("primesr").ToLocalChecked(), Nan::GetFunction(Nan::New<FunctionTemplate>(primesr)).ToLocalChecked());  // add by idigger
 }
 
 NODE_MODULE(multihashing, init)

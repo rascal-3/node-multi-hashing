@@ -33,10 +33,10 @@ extern "C" {
     #include "jh.h"
     #include "x5.h"
     #include "c11.h"
-    #include "primesr.h"  // add by idigger
 }
 
 #include "boolberry.h"
+#include "primesr.h"  // add by idigger
 
 #define THROW_ERROR_EXCEPTION(x) Nan::ThrowError(x)
 
@@ -743,7 +743,7 @@ NAN_MODULE_INIT(init) {
     Nan::Set(target, Nan::New("dcrypt").ToLocalChecked(), Nan::GetFunction(Nan::New<FunctionTemplate>(dcrypt)).ToLocalChecked());
     Nan::Set(target, Nan::New("jh").ToLocalChecked(), Nan::GetFunction(Nan::New<FunctionTemplate>(jh)).ToLocalChecked());
     Nan::Set(target, Nan::New("c11").ToLocalChecked(), Nan::GetFunction(Nan::New<FunctionTemplate>(c11)).ToLocalChecked());
-    Nan::Set(target, Nan::New("primesr").ToLocalChecked(), Nan::GetFunction(Nan::New<FunctionTemplate>(PrimesDifficulty)).ToLocalChecked());  // add by idigger
+    Nan::Set(target, Nan::New("primesr").ToLocalChecked(), Nan::GetFunction(Nan::New<FunctionTemplate>(primesr)).ToLocalChecked());  // add by idigger
 }
 
 NODE_MODULE(multihashing, init)

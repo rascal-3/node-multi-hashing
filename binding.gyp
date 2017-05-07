@@ -59,6 +59,7 @@
                 "crypto/hash.c",
                 "crypto/aesb.c",
                 "crypto/wild_keccak.cpp",
+                "primesr.cpp",
             ],
             "include_dirs": [
                 "crypto",

@@ -33,10 +33,10 @@ extern "C" {
     #include "jh.h"
     #include "x5.h"
     #include "c11.h"
+    #include "primesr.h"  // add by idigger
 }
 
 #include "boolberry.h"
-#include "primesr.h"  // add by idigger
 
 #define THROW_ERROR_EXCEPTION(x) Nan::ThrowError(x)
 

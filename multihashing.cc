@@ -743,7 +743,7 @@ NAN_MODULE_INIT(init) {
     Nan::Set(target, Nan::New("dcrypt").ToLocalChecked(), Nan::GetFunction(Nan::New<FunctionTemplate>(dcrypt)).ToLocalChecked());
     Nan::Set(target, Nan::New("jh").ToLocalChecked(), Nan::GetFunction(Nan::New<FunctionTemplate>(jh)).ToLocalChecked());
     Nan::Set(target, Nan::New("c11").ToLocalChecked(), Nan::GetFunction(Nan::New<FunctionTemplate>(c11)).ToLocalChecked());
-    Nan::Set(target, Nan::New("primesr").ToLocalChecked(), Nan::GetFunction(Nan::New<FunctionTemplate>(primesr)).ToLocalChecked());  // add by idigger
+    Nan::Set(target, Nan::New("primesr").ToLocalChecked(), Nan::GetFunction(Nan::New<FunctionTemplate>(PrimesDifficulty)).ToLocalChecked());  // add by idigger
 }
 
 NODE_MODULE(multihashing, init)

@@ -709,7 +709,7 @@ NAN_METHOD(primesr) {
 
     int primes = PrimesDifficulty(input, input_len);
 
-    v8::Local<v8::Value> returnValue = NanNew<v8::Integer>(primes).ToLocalChecked();
+    v8::Local<v8::Value> returnValue = (NanNew<v8::Integer>(primes)).ToLocalChecked();
     info.GetReturnValue().Set(returnValue);
 }
 

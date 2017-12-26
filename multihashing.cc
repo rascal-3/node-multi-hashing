@@ -10,7 +10,7 @@ extern "C" {
     #include "quark.h"
     #include "scryptjane.h"
     #include "scryptn.h"
-    #include "yescrypt/yescrypt.h"
+    #include "yescrypt-0.5/yescrypt.h"
     #include "yescrypt/sha256_Y.h"
     #include "neoscrypt.h"
     #include "skein.h"
